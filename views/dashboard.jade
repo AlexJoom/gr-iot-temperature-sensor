@@ -1,4 +1,17 @@
 extends layout
 
 block content
-  h1 My dashboard
+  h1 Device: CD244226
+  p #{measurements.length} measurements for today
+  table.table.table-striped
+      thead
+          tr
+            th #
+            th Temperature
+            th Date and time
+      tbody
+        each temp,index in measurements
+            tr
+                td= index
+                td= temp.data
+                td= temp.createdAt
