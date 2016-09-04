@@ -10,10 +10,11 @@ const User = require('../models/User');
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/');
+    return res.redirect('/dashboard');
   }
   res.render('account/login', {
-    title: 'Login'
+    title: 'Login',
+    menuItem:"login"
   });
 };
 
@@ -42,7 +43,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
+      res.redirect(req.session.returnTo || '/dashboard');
     });
   })(req, res, next);
 };
@@ -65,7 +66,8 @@ exports.getSignup = (req, res) => {
     return res.redirect('/');
   }
   res.render('account/signup', {
-    title: 'Create Account'
+    title: 'Create Account',
+      menuItem:"signup"
   });
 };
 

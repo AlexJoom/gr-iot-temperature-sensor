@@ -11,15 +11,18 @@
         | GRIOT
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(class=(title == 'Home') ? 'active' : undefined)
+        if user
+          li(class=(menuItem == 'dashboard') ? 'active' : undefined)
+            a(href='/dashboard') Dashboard
+        li(class=(menuItem == 'home') ? 'active' : undefined)
           a(href='/') Home
-        li(class=(title == 'Contact') ? 'active' : undefined)
+        li(class=(menuItem == 'contact') ? 'active' : undefined)
           a(href='/contact') Contact
       ul.nav.navbar-nav.navbar-right
         if !user
-          li(class=(title == 'Login') ? 'active' : undefined)
+          li(class=(menuItem == 'login') ? 'active' : undefined)
             a(href='/login') Login
-          li(class=(title == 'Create Account') ? 'active' : undefined)
+          li(class=(menuItem == 'signup') ? 'active' : undefined)
             a(href='/signup') Create Account
         else
           li.dropdown(class=(title == 'Account Management') ? 'active' : undefined)
