@@ -1,5 +1,6 @@
 
 module.exports = function(app,passport){
+
     /**
      * Controllers (route handlers).
      */
@@ -45,5 +46,5 @@ module.exports = function(app,passport){
     app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
         res.redirect('/dashboard');
     });
-    app.get("/dashboard",dashboardController.getDashboard  );
+    app.get("/dashboard",passportConfig.isAuthenticated,dashboardController.getDashboard  );
 }
