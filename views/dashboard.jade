@@ -1,17 +1,43 @@
 extends layout
 
+block css
+    link(rel='stylesheet', href='/css/dashboard/index.css')
+
+block js
+    script(src='/js/dashboard/index.js')
+
 block content
-  h1 Device: CD244226
-  p #{measurements.length} measurements for today
-  table.table.table-striped
-      thead
-          tr
-            th #
-            th Temperature
-            th Date and time
-      tbody
-        each temp,index in measurements
-            tr
-                td= index
-                td= temp.data
-                td= temp.createdAt
+
+    #devices
+        h1 Monitoring temperature from #{devices.length} devices
+        .row
+            .col-lg-12
+                each device in devices
+                    a.device(href="javascript:void(0)" data-id="#{device}") device: #{device.replace(/^0+/,"")}
+
+    hr
+    #results
+        .state.loading.text-dcenter
+            img(src='images/loading.gif')
+        .state.results
+            p#results-info
+            table.table.table-striped
+                thead
+                    tr
+                        th #
+                        th Temperature
+                        th Date and time
+                tbody
+                    each temp,index in measurements
+                        tr
+                            td= index
+                            td= temp.data
+                            td= temp.createdAt
+
+
+        .state.no-results
+            p No measurements found for device
+
+
+
+

@@ -1,0 +1,36 @@
+
+a,a:hover,a:active,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+.device
+{
+    float:left;
+    padding:10px;
+    margin:10px;
+    background-color:black;
+    color:white;
+    font-size:14px;
+    text-decoration: none;
+    border-radius:10px;
+    cursor:hand;
+}
+.device:hover,.device.active
+{
+    background-color:yellow;
+    color:black;
+    text-decoration:none;
+}
+
+.device.active
+{
+    cursor:default
+}
+
+.device:first-child
+{
+    margin-left:0;
+}
+.device:last-child{
+    margin-right:0;
+}

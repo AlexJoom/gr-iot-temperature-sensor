@@ -9,6 +9,7 @@ html
     title GRIOT | #{title}
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    block  css
 
   body
     include partials/header
@@ -22,6 +23,7 @@ html
     script(src='/js/lib/jquery-2.2.0.min.js')
     script(src='/js/lib/bootstrap.min.js')
     script(src='/js/main.js')
+    block  js
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     script.
