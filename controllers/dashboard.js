@@ -18,7 +18,7 @@ exports.getDashboard = (req, res) => {
 exports.getMeasurementsForDevice = (req,res) => {
 
     var today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(-48, 0, 0, 0);
 
     Measurement
         .find({

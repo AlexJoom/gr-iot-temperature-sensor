@@ -2,7 +2,7 @@ griot.dashoardIndex = function(){};
 griot.dashoardIndex.prototype = (function(){
 
     var bindMeasurementsOnTable = function(deviceFriendlyName, data){
-        $("#results-info").text(deviceFriendlyName +", "+ data.length + " measurements for today");
+        $("#results-info").text(deviceFriendlyName +", "+ data.length + " measurements for the past 48 hours");
         var results = [];
         $.each(data,function(index,el){
             results.push("<tr><td>"+(index+1)+"</td>"+
