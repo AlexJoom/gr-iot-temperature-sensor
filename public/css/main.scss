@@ -1,10 +1,10 @@
-@import "themes/default/variables";
+@import "themes/flatly/_variables";
 
 @import "lib/bootstrap/bootstrap";
 @import "lib/bootstrap-social";
 @import "lib/font-awesome/font-awesome";
 
-@import "themes/default/default";
+@import "themes/flatly/_flatly";
 
 // Scaffolding
 // -------------------------
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 90px;
   margin-bottom: 75px;
 }
 
@@ -70,8 +70,33 @@ textarea {
   margin-right: 6px;
 }
 
+// states
 .state
 {display:none}
 
 .state.active
 {display:inherit;}
+
+// theme overrides
+.navbar
+{
+  background-color: #41403e;
+  text-transform: uppercase;
+  font-size:17px;
+}
+.navbar-brand
+{
+  padding-top:10px;
+}
+
+.navbar, .navbar-brand, .navbar-brand {
+  height: 80px;
+}
+.navbar-brand > img
+{
+  height:60px;
+}
+.navbar-nav > li > a{
+  padding-top:28px;
+  padding-bottom:28px;
+}
