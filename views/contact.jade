@@ -2,12 +2,12 @@ extends layout
 
 block content
   .page-header
-    h3 Contact Form
+    h3 Φόρμα επικοινωνίας
 
   form.form-horizontal(method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
-      label(class='col-sm-2 control-label', for='name') Name
+      label(class='col-sm-2 control-label', for='name') Το όνομα σας
       .col-sm-8
         input.form-control(type='text', name='name', id='name', autofocus=true)
     .form-group
@@ -15,11 +15,11 @@ block content
       .col-sm-8
         input.form-control(type='text', name='email', id='email')
     .form-group
-      label(class='col-sm-2 control-label', for='message') Body
+      label(class='col-sm-2 control-label', for='message') Για ποιό λόγο επικοινωνείτε μαζί μας
       .col-sm-8
         textarea.form-control(name='message', id='message', rows='7')
     .form-group
       .col-sm-offset-2.col-sm-8
         button.btn.btn-primary(type='submit')
           i.fa.fa-envelope
-          | Send
+          | Υποβολή

@@ -8,7 +8,12 @@
 
 // Scaffolding
 // -------------------------
-
+a,a:hover, a:active, a:focus{
+  outline: none;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+  color:white;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -38,14 +43,6 @@ textarea {
   resize: vertical;
 }
 
-// Navbar
-// -------------------------
-
-.navbar-nav img {
-  width: 30px;
-  height: 30px;
-  margin: -15px 15px -15px;
-}
 
 // Alerts
 // -------------------------
@@ -77,7 +74,19 @@ textarea {
 .state.active
 {display:inherit;}
 
-// theme overrides
+// Navbar
+// -------------------------
+
+.navbar-nav img {
+  width: 30px;
+  height: 30px;
+  margin: -15px 15px -15px;
+}
+
+.caret{
+  vertical-align:4px;
+}
+
 .navbar
 {
   background-color: #41403e;
@@ -99,4 +108,10 @@ textarea {
 .navbar-nav > li > a{
   padding-top:28px;
   padding-bottom:28px;
+}
+
+.solution-info img
+{
+  display:block;
+  margin:10px;
 }

@@ -12,17 +12,20 @@
       ul.nav.navbar-nav
         if user
           li(class=(menuItem == 'dashboard') ? 'active' : undefined)
-            a(href='/dashboard') Dashboard
-        li(class=(menuItem == 'home') ? 'active' : undefined)
-          a(href='/') Home
+            a(href='/dashboard') ΠΙΝΑΚΑΣ ΕΛΕΓΧΟΥ
+        if !user
+          li(class=(menuItem == 'home') ? 'active' : undefined)
+            a(href='/') ΑΡΧΙΚΗ
         li(class=(menuItem == 'contact') ? 'active' : undefined)
-          a(href='/contact') Contact
+          a(href='/contact') ΕΠΙΚΟΙΝΩΝΙΑ
+          li(class=(menuItem == 'about') ? 'active' : undefined)
+            a(href='/about') ΣΧΕΤΙΚΑ
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(menuItem == 'login') ? 'active' : undefined)
-            a(href='/login') Login
+            a(href='/login') ΕΙΣΟΔΟΣ
           li(class=(menuItem == 'signup') ? 'active' : undefined)
-            a(href='/signup') Create Account
+            a(href='/signup') ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ
         else
           li.dropdown(class=(title == 'Account Management') ? 'active' : undefined)
             a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -34,7 +37,7 @@
               i.caret
             ul.dropdown-menu
               li
-                a(href='/account') My Account
+                a(href='/account') Ο ΛΟΓΑΡΙΑΣΜΟΣ ΜΟΥ
               li.divider
               li
-                a(href='/logout') Logout
+                a(href='/logout') ΕΞΟΔΟΣ

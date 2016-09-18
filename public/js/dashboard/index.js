@@ -2,7 +2,7 @@ griot.dashoardIndex = function(){};
 griot.dashoardIndex.prototype = (function(){
 
     var bindMeasurementsOnTable = function(deviceFriendlyName,deviceId, data){
-        $("#results-info").find("span").text(deviceFriendlyName +", "+ data.length + " measurements for the past 48 hours");
+        $("#results-info").find("span").text(deviceFriendlyName +", "+ data.length + " μετρήσεις τις τελευταίες 48 ώρες");
         $("#export").attr("href","/dashboard/measurements/export/"+deviceId);
         var results = [];
         $.each(data,function(index,el){

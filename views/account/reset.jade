@@ -3,15 +3,15 @@ extends ../layout
 block content
   .col-sm-8.col-sm-offset-2
     form(method='POST')
-      legend Reset Password
+      legend Αλλαγή κωδικού
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
-        label(for='password') New Password
-        input.form-control(type='password', name='password', id='password', placeholder='New password', autofocus, required)
+        label(for='password') Νέος κωδικός
+        input.form-control(type='password', name='password', id='password', placeholder='Νέος κωδικός', autofocus, required)
       .form-group
-        label(for='confirm') Confirm Password
-        input.form-control(type='password', name='confirm', id='confirm', placeholder='Confirm password', required)
+        label(for='confirm') Επιβεβαίωση κωδικού
+        input.form-control(type='password', name='confirm', id='confirm', placeholder='Επιβεβαίωση κωδικού', required)
       .form-group
         button.btn.btn-primary.btn-reset(type='submit')
           i.fa.fa-keyboard-o
-          | Change Password
+          | Αλλαγή κωδικού

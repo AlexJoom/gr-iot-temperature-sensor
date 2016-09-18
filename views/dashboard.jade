@@ -9,11 +9,11 @@ block js
 block content
 
     #devices
-        h1 Monitoring temperature from #{devices.length} devices
+        h1 Δεδομένα απο  #{devices.length} συσκεύες
         .row
             .col-lg-12
                 each device in devices
-                    a.device(href="javascript:void(0)" data-id="#{device}") device: #{device.replace(/^0+/,"")}
+                    a.device(href="javascript:void(0)" data-id="#{device}") συσκεύη: #{device.replace(/^0+/,"")}
 
     hr
     #results
@@ -22,13 +22,13 @@ block content
         .state.results
             p#results-info
                 span
-                a#export.btn.btn-default.pull-right(href="/dashboard/measurements/export/") Export results
+                a#export.btn.btn-default.pull-right(href="/dashboard/measurements/export/") Κατέβασμα σε excel
             table.table.table-striped
                 thead
                     tr
                         th #
-                        th Temperature
-                        th Date and time
+                        th Θερμοκρασία
+                        th Ημερομηνία
                 tbody
                     each temp,index in measurements
                         tr
@@ -38,7 +38,7 @@ block content
 
 
         .state.no-results
-            p No measurements found for device
+            p Δε βρέθηκαν δεδομένα για αυτήν τη συσκευή
 
 
 
