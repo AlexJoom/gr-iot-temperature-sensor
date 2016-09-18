@@ -1,8 +1,9 @@
 griot.dashoardIndex = function(){};
 griot.dashoardIndex.prototype = (function(){
 
-    var bindMeasurementsOnTable = function(deviceFriendlyName, data){
-        $("#results-info").text(deviceFriendlyName +", "+ data.length + " measurements for the past 48 hours");
+    var bindMeasurementsOnTable = function(deviceFriendlyName,deviceId, data){
+        $("#results-info").find("span").text(deviceFriendlyName +", "+ data.length + " measurements for the past 48 hours");
+        $("#export").attr("href","/dashboard/measurements/export/"+deviceId);
         var results = [];
         $.each(data,function(index,el){
             results.push("<tr><td>"+(index+1)+"</td>"+
@@ -11,7 +12,6 @@ griot.dashoardIndex.prototype = (function(){
                          "</tr>");
         });
         $("#results").find("tbody").append(results.join());
-        
     },
         retrieveMeasurements = function(){
             var deviceId = $(this).data("id");
@@ -26,7 +26,7 @@ griot.dashoardIndex.prototype = (function(){
                 success: function(data){
                     if (data && data.length>0){
                         griot.setState(griot.enum.State.HAS_RESULTS);
-                        bindMeasurementsOnTable(deviceFriendlyName,data);
+                        bindMeasurementsOnTable(deviceFriendlyName,deviceId,data);
                     }
                     else
                         griot.setState(griot.enum.State.NO_RESULTS);

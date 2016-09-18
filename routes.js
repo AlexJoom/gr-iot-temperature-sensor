@@ -47,5 +47,6 @@ module.exports = function(app,passport){
         res.redirect('/dashboard');
     });
     app.get("/dashboard",passportConfig.isAuthenticated,dashboardController.getDashboard  );
+    app.get("/dashboard/measurements/export/:deviceId",passportConfig.isAuthenticated,dashboardController.getFileWithMeasurementsInfo);
     app.get("/dashboard/measurements/:deviceId",passportConfig.isAuthenticated,dashboardController.getMeasurementsForDevice);
 }

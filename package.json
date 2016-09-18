@@ -1,9 +1,9 @@
 {
-  "name": "hackathon-starter",
+  "name": "griot-easy-temperature-kit",
   "version": "4.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/AlexJoom/gr-iot-temperature-sensor"
   },
   "scripts": {
     "start": "node app.js",
@@ -28,6 +28,7 @@
     "github-api": "^2.2.0",
     "instagram-node": "^0.5.8",
     "jade": "^1.11.0",
+    "json2csv": "^3.6.3",
     "lastfm": "^0.9.2",
     "lob": "^3.9.0",
     "lodash": "^4.12.0",
@@ -52,10 +53,10 @@
     "paypal-rest-sdk": "^1.6.8",
     "request": "^2.72.0",
     "stripe": "^4.6.0",
+    "ttn": "^1.2.0",
     "tumblr.js": "^1.0.0",
     "twilio": "^3.3.0-edge",
     "twit": "^2.2.4",
-    "ttn": "^1.2.0",
     "validator": "^5.2.0",
     "yui": "^3.18.1"
   },

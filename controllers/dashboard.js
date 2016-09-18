@@ -1,33 +1,59 @@
 const Measurement= require('../models/Measurement');
+const json2csv = require('json2csv');
 
+//todo: move logic out of controllers, use promises
 exports.getDashboard = (req, res) => {
 
-    Measurement
+    var resultsPromise = Measurement
         .distinct('device')
-        .exec(function(err,data){
-            console.log(data);
-            res.render('dashboard', {
-                title: 'Dashboard',
-                menuItem: "dashboard",
-                measurements: [],
-                devices :data
-            });
+        .exec();
+
+    resultsPromise.then(function(data){
+        console.log(data);
+        res.render('dashboard', {
+            title: 'Dashboard',
+            menuItem: "dashboard",
+            measurements: [],
+            devices :data
         });
+    })
 };
 
-exports.getMeasurementsForDevice = (req,res) => {
-
+var getMeasurements = function(deviceid){
     var today = new Date();
     today.setHours(-48, 0, 0, 0);
 
-    Measurement
+    return Measurement
         .find({
             "createdAt" : { $gt: today },
-            "device" : req.params.deviceId
+            "device" : deviceid
         })
         .sort({createdAt:-1})
-        .exec(function(err,data){
-            res.json(data);
+        .exec();
+}
+
+exports.getMeasurementsForDevice = (req,res) => {
+    getMeasurements(req.params.deviceId)
+        .then(function(data){
+           res.json(data);
+        });
+}
+
+exports.getFileWithMeasurementsInfo =(req,res) => {
+    console.log("test");
+    getMeasurements(req.params.deviceId)
+        .then(function(data){
+
+            var csvFields = [
+                 {label: "Device", value:"device"},
+                 {label: "Temperature", value:"data"},
+                 {label: "Date and time", value:"createdAt"}
+                ];
+            var result = json2csv({ data: data, fields: csvFields} );
+            res.setHeader('Content-disposition', 'attachment; filename=export.csv');
+            res.set('Content-Type', 'text/csv');
+            res.status(200).send(result);
+
         });
 
 }
