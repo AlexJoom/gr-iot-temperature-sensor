@@ -1,9 +1,9 @@
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
-  service: 'SendGrid',
+  service: 'Mailgun',
   auth: {
-    user: process.env.SENDGRID_USER,
-    pass: process.env.SENDGRID_PASSWORD
+    user: process.env.MAILGUN_USER,
+    pass: process.env.MAILGUN_PASSWORD
   }
 });
 
@@ -23,9 +23,9 @@ exports.getContact = (req, res) => {
  * Send a contact form via Nodemailer.
  */
 exports.postContact = (req, res) => {
-  req.assert('name', 'Name cannot be blank').notEmpty();
-  req.assert('email', 'Email is not valid').isEmail();
-  req.assert('message', 'Message cannot be blank').notEmpty();
+  req.assert('name', 'Παρακαλώ εισάγετε το ονοματεπώνυμό σας').notEmpty();
+  req.assert('email', 'Η διεύθυνση email δεν είναι σωστή').isEmail();
+  req.assert('message', 'Παρακαλω εισάγετε ενα μύνημα').notEmpty();
 
   const errors = req.validationErrors();
 
@@ -35,9 +35,9 @@ exports.postContact = (req, res) => {
   }
 
   const mailOptions = {
-    to: 'your@email.com',
+    to: process.env.CONTACT_EMAIL,
     from: `${req.body.name} <${req.body.email}>`,
-    subject: 'Contact Form | Hackathon Starter',
+    subject: 'ETS | Contact request',
     text: req.body.message
   };
 
@@ -46,7 +46,7 @@ exports.postContact = (req, res) => {
       req.flash('errors', { msg: err.message });
       return res.redirect('/contact');
     }
-    req.flash('success', { msg: 'Email has been sent successfully!' });
+    req.flash('success', { msg: 'Το email σας εστάλη επιτυχώς!' });
     res.redirect('/contact');
   });
 };
