@@ -96,6 +96,16 @@ griot.dashoardIndex.prototype = (function(){
                                 suggestedMin: graphData[0].data - 5,
                                 suggestedMax: graphData[0].data + 5,
                                 stepSize: 1
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Θερμοκρασία'
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Ώρα'
                             }
                         }]
                     }
