@@ -87,6 +87,7 @@ routes(app,passport);
  */
 app.use(errorHandler());
 
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
 /**
  * Start Express server.
  */

@@ -19,9 +19,9 @@ exports.getDashboard = (req, res) => {
     })
 };
 
-var getMeasurements = function(deviceid){
+var getMeasurements = function(deviceid, hours){
     var today = new Date();
-    today.setHours(-48, 0, 0, 0);
+    today.setHours(-parseInt(hours), 0, 0, 0);
 
     return Measurement
         .find({
@@ -33,7 +33,7 @@ var getMeasurements = function(deviceid){
 }
 
 exports.getMeasurementsForDevice = (req,res) => {
-    getMeasurements(req.params.deviceId)
+    getMeasurements(req.params.deviceId, req.params.hours)
         .then(function(data){
            res.json(data);
         });
