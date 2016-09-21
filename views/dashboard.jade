@@ -15,8 +15,7 @@ block content
                 each device in devices
                     a.device(href="javascript:void(0)" data-id="#{device}") συσκευή: #{device.replace(/^0+/,"")}
 
-    hr
-    canvas#temperaturesChart
+
     hr
     #results
         .state.loading.text-dcenter
@@ -24,6 +23,8 @@ block content
         .state.results
             p#results-info
                 span
+            canvas#temperaturesChart
+            p
                 a#export.btn.btn-default.pull-right(href="/dashboard/measurements/export/") Κατέβασμα σε excel
             table.table.table-striped
                 thead

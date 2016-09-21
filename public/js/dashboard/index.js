@@ -32,7 +32,7 @@ griot.dashoardIndex.prototype = (function(){
                 result.push([collectionCopy[i]]);
             }
         }
-        for(i = 0; i < result.length; i++) {
+        for(var i = 0; i < result.length; i++) {
             var dataSum = 0;
             for(k = 0; k < result[i].length; k++) {
                 dataSum += result[i][k].data;
@@ -47,10 +47,18 @@ griot.dashoardIndex.prototype = (function(){
             if(keyA > keyB) return 1;
             return 0;
         });
+        return improveTimeLabels(groupped);
+    },
+    improveTimeLabels = function(groupped){
+        for (var i=0;i<groupped.length; i++)
+        {
+            groupped[i].createdAt = groupped[i].createdAt+":00";
+        }
         return groupped;
     },
     bindMeasurementsOnChart = function(deviceFriendlyName,deviceId, graphData){
         console.log(graphData);
+        $("#temperaturesChart").css("display", "block");
         var ctx = document.getElementById("temperaturesChart");
 
         var data = {
@@ -111,7 +119,7 @@ griot.dashoardIndex.prototype = (function(){
                     }
                 }
             });
-        $("#temperaturesChart").css("display", "block");
+
         },
         retrieveMeasurements = function(){
             var deviceId = $(this).data("id");
@@ -127,7 +135,6 @@ griot.dashoardIndex.prototype = (function(){
                     if (data && data.length>0){
                         griot.setState(griot.enum.State.HAS_RESULTS);
                         bindMeasurementsOnTable(deviceFriendlyName,deviceId,data);
-                    
                         bindMeasurementsOnChart(deviceFriendlyName,deviceId,groupBy(data, 'createdAt'));
                     }
                     else
