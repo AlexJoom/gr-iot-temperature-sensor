@@ -76,6 +76,9 @@ app.use((req, res, next) => {
   next();
 });
 
+if (process.env.ENFORCED_DOMAIN)
+  app.use( require('express-force-domain')(process.env.ENFORCED_DOMAIN));
+
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 
