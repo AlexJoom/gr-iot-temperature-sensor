@@ -23,9 +23,9 @@ exports.getContact = (req, res) => {
  * Send a contact form via Nodemailer.
  */
 exports.postContact = (req, res) => {
-  req.assert('name', 'Παρακαλώ εισάγετε το ονοματεπώνυμό σας').notEmpty();
+  req.assert('name', 'Παρακαλώ εισαγάγετε το ονοματεπώνυμό σας').notEmpty();
   req.assert('email', 'Η διεύθυνση email δεν είναι σωστή').isEmail();
-  req.assert('message', 'Παρακαλω εισάγετε ενα μύνημα').notEmpty();
+  req.assert('message', 'Παρακαλω εισαγάγετε ενα μύνημα').notEmpty();
 
   const errors = req.validationErrors();
 
