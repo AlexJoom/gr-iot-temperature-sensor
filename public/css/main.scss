@@ -77,6 +77,12 @@ textarea {
 // Navbar
 // -------------------------
 
+.navbar-collapse.collapse.in  .nav.navbar-nav {
+  background-color: black;
+  margin-top: 0;
+  margin-bottom:0;
+}
+
 .navbar-nav img {
   width: 30px;
   height: 30px;
@@ -106,8 +112,8 @@ textarea {
   height:60px;
 }
 .navbar-nav > li > a{
-  padding-top:28px;
-  padding-bottom:28px;
+  padding-bottom: 29px;
+  padding-top: 30px;
 }
 
 .solution-info img
