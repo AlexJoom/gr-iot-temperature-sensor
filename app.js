@@ -19,20 +19,12 @@ const sass = require('node-sass-middleware');
 const multer = require('multer');
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
-/**
- * Load environment variables from .env file, where API keys and passwords are configured.
- */
+
+//Load environment variables from .env file, where API keys and passwords are configured.
 dotenv.load({ path: '.env' });
-
-
-
-
-
-/**
- * Create Express server.
- */
+//Create Express server.
 const app = express();
-
+app.locals.GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
 /**
  * Connect to MongoDB.
  */
