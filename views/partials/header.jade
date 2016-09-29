@@ -18,8 +18,10 @@
             a(href='/') ΑΡΧΙΚΗ
         li(class=(menuItem == 'contact') ? 'active' : undefined)
           a(href='/contact') ΕΠΙΚΟΙΝΩΝΙΑ
-          li(class=(menuItem == 'about') ? 'active' : undefined)
-            a(href='/about') ΣΧΕΤΙΚΑ
+        li(class=(menuItem == 'about') ? 'active' : undefined)
+          a(href='/about') ΣΧΕΤΙΚΑ
+        li
+          a(href='http://www.griot.gr',target="_blank") GR-IoT
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(menuItem == 'login') ? 'active' : undefined)
